@@ -1,0 +1,211 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Shift Freight - Index</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <!--<link href="{% static 'assets/img/favicon.png'%}" rel="icon">-->
+  <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Logis - v1.2.0
+  * Template URL: https://bootstrapmade.com/logis-bootstrap-logistics-website-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+  <!-- <script type="text/javascript">
+    (function(d, m){
+        var kommunicateSettings = 
+            {"appId":"5b2e3fe765f5a6688435d709ebae5ab7","popupWidget":true,"automaticChatOpenOnNavigation":true};
+        var s = document.createElement("script"); s.type = "text/javascript"; s.async = true;
+        s.src = "https://widget.kommunicate.io/v2/kommunicate.app";
+        var h = document.getElementsByTagName("head")[0]; h.appendChild(s);
+        window.kommunicate = m; m._globals = kommunicateSettings;
+    })(document, window.kommunicate || {});
+/* NOTE : Use web server to view HTML files as real-time update will not work if you directly open the HTML file in the browser. */
+</script> -->
+<style>
+  .header{
+    height: 30px;
+  }
+  .container{
+    margin-top: 10pc;
+  }
+            
+</style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" style="background-color: #1f3e5d;" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+        <a href="http://127.0.0.1:8000/" class="logo d-flex align-items-center">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="assets/img/logo.png" alt=""> -->
+            <h1>Shift Freight</h1>
+        </a>
+
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+        <nav id="navbar" class="navbar">
+            <ul>
+                <li><a href="http://127.0.0.1:8000/accounts/driverhome/" class="active">Dashboard</a></li>
+
+                <li><a href="">Profile</a></li>
+
+                <li><a href="http://127.0.0.1:8000/accounts/viewfuel/">Fuel Management</a></li>
+
+                <li><a href="http://127.0.0.1:8000/accounts/driverconsignment/">Consignment</a></li>
+
+                <li class="dropdown"><a href="#"> <span>{{user.name}}</span><i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                  <ul>
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                  </ul>
+                </li>
+
+                <!-- <ul class="float-right">
+                  <li><a href="#">{{user.name}}</a>
+            <ul>
+                    <li><a href="/accounts/logout" >LOGOUT</a></li>
+            </ul>
+          </li>
+                  
+              </ul> -->
+      
+
+            </ul>
+        </nav><!-- .navbar -->
+
+    </div>
+
+</header><!-- End Header -->
+<!-- End Header -->
+
+  <!-- ======= Hero Section ======= -->
+  <div>
+    <div class="content">
+        <div class="container">
+            <h3>Booking Status</h3>
+    
+            <table class="table">
+                <tr>
+                    <th style="background-color:#8de1a3"><b>#</b></td>
+                    <th style="background-color:#8de1a3"><b>Pickup City</b></td>
+                    <th style="background-color:#8de1a3"><b>Drop City</b></td>
+                    <th style="background-color:#8de1a3"><b>Type of Goods</b></td>
+                    <th style="background-color:#8de1a3"><b>Booking Date</b></td>
+                    <!-- <th style="background-color:#8de1a3"><b>Driver&Truck</td> -->
+                      <th style="background-color:#8de1a3"><b>Status</td>
+                    <th style="background-color:#8de1a3"><b></td>
+                    
+                </tr>
+                {% for a in ab %}
+                
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{a.p_cit}}</td>
+                    <td>{{a.d_cit}}</td>
+                    <td>{{a.good_typ}}</td>
+                    <td>{{a.bookingdat}}</td>
+                    <!-- <td>
+                      {% if a.statu == 'Approved' %}
+                      
+                      <button type="button" class="btn btn-outline-success">{{a.statu}}</button>
+                            <!-- <button class="button btn btn-success" ></button></t>
+                      {% else %}  
+                      <button type="button" class="btn btn-outline-primary">{{a.statu}}</button>          
+                            <!-- <button class="button btn btn-info" ></button> 
+                      {% endif %}
+                      
+                    </td> -->
+                    <!-- <td>
+                        {% if a.veh_id_id  %}
+                        <a href=""><button class="button btn btn-success btn-sm">Added</button></a>
+                        <a href="{% url 'bookingsummary' a.boo_id %}"><button class="button btn btn-outline-success btn-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye" viewBox="0 0 16 16">
+                          <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 
+                          3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 
+                          11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z"/>
+                          <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z"/>
+                        </svg>
+                        {% else %}            
+                        <a href="{% url 'addtruckdriver' a.boo_id %}" a.id> <button class="button btn btn-secondary" >Add</button> </a>
+                        
+                        {% endif %}
+                      </td> -->
+                      <td>
+                        
+                      </td>
+                    
+                    
+                </tr>
+                {% endfor %}
+                
+            </table>
+            <div class="pagination">
+              <span class="step-links">
+                  {% if ab.has_previous %}
+                      <a href="?page=1">&laquo; first</a>
+                      <a href="?page={{ ab.previous_page_number }}">previous</a>
+                  {% endif %}
+    
+                  <span class="current-page">
+                      Page {{ ab.number }} of {{ ab.paginator.num_pages }}.
+                  </span>
+    
+                  {% if ab.has_next %}
+                      <a href="?page={{ ab.next_page_number }}">next</a>
+                      <a href="?page={{ ab.paginator.num_pages }}">last &raquo;</a>
+                  {% endif %}
+              </span>
+          </div>
+            
+        </div>
+            
+        
+    </div>
+</div>
+
+
+  <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!-- Template Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>

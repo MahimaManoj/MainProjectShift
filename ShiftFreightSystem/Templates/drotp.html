@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Driver OTP Login</title>
+</head>
+<body>
+	<h1>User Driver OTP Login</h1>
+	<form  method="post">
+        {% csrf_token %}
+		<label for="otp">OTP:</label>
+		<input type="text" id="otp" name="otp" required>
+		<button type="button" onclick="verifyOTP()">Verify OTP</button>
+	</form>
+	<script>
+		
+		function verifyOTP() {
+			// Code to verify OTP entered by the user
+			alert("OTP verified successfully.");
+			// Redirect user to dashboard or home page
+			window.location.href = "driverhome.html";
+		}
+	</script>
+</body>
+</html>

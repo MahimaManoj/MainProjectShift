@@ -1,0 +1,397 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Shift Freight - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <!--<link href="{% static 'assets/img/favicon.png'%}" rel="icon">-->
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/book.css' %}" rel="stylesheet">
+    <script src="{% static 'js/addfuel.js' %}" rel="stylesheet"></script>
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.book.css">
+    
+    <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard.book.css" rel="stylesheet"
+        type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard_theme_arrows.book.css"
+        rel="stylesheet" type="text/css" />
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/jquery.smartWizard.book.js"></script>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+      
+        <link rel="stylesheet" href="css/ionicons.min.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Bootstrap Table with Add and Delete Row Feature</title>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+        <style type="text/css">
+            header{
+                height: 20px;
+            }
+            .container{
+                margin-top: 150px;
+            }
+            th, td{
+                padding: 5px;
+                width: 80px;
+            }
+            body {
+            color: #404E67;
+            background: #F5F7FA;
+            font-family: 'Open Sans', sans-serif;
+            }
+            .table-wrapper {
+            width: 1300px;
+            /* margin: 20px auto; */
+            background: #fff;
+            padding: 20px;
+            margin-left: -70px;
+            margin-right: 20px;
+            box-shadow: 0 1px 1px rgba(0,0,0,.05);
+            }
+            .table-title {
+            padding-bottom: 10px;
+            margin: 0 0 10px;
+            }
+            .table-title h2 {
+            margin: 6px 0 0;
+            font-size: 22px;
+            }
+            .table-title .add-new {
+            float: right;
+            height: 30px;
+            font-weight: bold;
+            font-size: 12px;
+            text-shadow: none;
+            min-width: 100px;
+            border-radius: 50px;
+            line-height: 13px;
+            }
+            .table-title .add-new i {
+            margin-right: 4px;
+            }
+            /* table.table {
+            table-layout: fixed;
+            } */
+            table.table tr th, table.table tr td {
+            border-color: #e9e9e9;
+            }
+            table.table th i {
+            font-size: 13px;
+            margin: 0 5px;
+            cursor: pointer;
+            }
+            table.table th:last-child {
+            width: 100px;
+            }
+            table.table td a {
+            cursor: pointer;
+            display: inline-block;
+            margin: 0 5px;
+            min-width: 24px;
+            }
+            table.table td a.add {
+            color: #27C46B;
+            }
+            table.table td a.edit {
+            color: #FFC107;
+            }
+            table.table td a.delete {
+            color: #E34724;
+            }
+            table.table td i {
+            font-size: 19px;
+            }
+            table.table td a.add i {
+            font-size: 24px;
+            margin-right: -1px;
+            position: relative;
+            top: 3px;
+            }
+            table.table .form-control {
+            height: 32px;
+            line-height: 32px;
+            box-shadow: none;
+            border-radius: 2px;
+            }
+            table.table .form-control.error {
+            border-color: #f50000;
+            }
+            table.table td .add {
+            display: none;
+            }
+            colgroup{
+                width: 600px;
+            }
+
+            /* Style the modal box */
+		.modal {
+		  display: none;
+		  position: fixed;
+		  z-index: 1;
+		  padding-top: 100px;
+		  left: 0;
+		  top: 0;
+		  width: 100%;
+		  height: 100%;
+		  overflow: auto;
+		  background-color: rgba(0,0,0,0.4);
+		}
+
+		/* Style the modal content */
+		.modal-content {
+		  background-color: #fefefe;
+		  margin: auto;
+		  padding: 20px;
+		  border: 1px solid #888;
+		  width: 80%;
+		}
+
+		/* Style the close button */
+		.close {
+		  color: #aaaaaa;
+		  float: right;
+		  font-size: 28px;
+		  font-weight: bold;
+		}
+
+		.close:hover,
+		.close:focus {
+		  color: #000;
+		  text-decoration: none;
+		  cursor: pointer;
+		}
+            </style>
+            <!-- <script type="text/javascript">
+            $(document).ready(function(){
+            $('[data-toggle="tooltip"]').tooltip();
+            var actions = $("table td:last-child").html();
+            // Append table with add row form on add new button click
+            $(".add-new").click(function(){
+            $(this).attr("disabled", "disabled");
+            var index = $("table tbody tr:last-child").index();
+            var row = '<tr>' +
+            // '<td><input type="text" class="form-control" name="slno" id="slno"></td>' +
+            '<td><input type="text" class="form-control" name="truck" id="truck"></td>' +
+            '<td><input type="text" class="form-control" name="odometer_reading" id="odometer_reading"></td>' +
+            '<td><input type="date" class="form-control" name="fill_date" id="fill_date"></td>' +
+            '<td><input type="text" class="form-control" name="quantity" id="quantity"></td>' +
+            '<td><input type="text" class="form-control" name="amount" id="amount"></td>' +
+            '<td><input type="text" class="form-control" name="comment" id="comment"></td>' +
+            '<td><input type="file" class="form-control" name="bill_image" id="bill_image"></td>' +
+            '<td>' + actions + '</td>' +
+            '</tr>';
+            $("table").append(row);
+            $("table tbody tr").eq(index + 1).find(".add, .edit").toggle();
+            $('[data-toggle="tooltip"]').tooltip();
+            });
+            // Add row on add button click
+            $(document).on("click", ".add", function(){
+            var empty = false;
+            var input = $(this).parents("tr").find('input[type="text"]');
+            input.each(function(){
+            if(!$(this).val()){
+            $(this).addClass("error");
+            empty = true;
+            } else{
+            $(this).removeClass("error");
+            }
+            });
+            $(this).parents("tr").find(".error").first().focus();
+            if(!empty){
+            input.each(function(){
+            $(this).parent("td").html($(this).val());
+            });
+            $(this).parents("tr").find(".add, .edit").toggle();
+            $(".add-new").removeAttr("disabled");
+            }
+            });
+            // Edit row on edit button click
+            $(document).on("click", ".edit", function(){
+            $(this).parents("tr").find("td:not(:last-child)").each(function(){
+            $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
+            });
+            $(this).parents("tr").find(".add, .edit").toggle();
+            $(".add-new").attr("disabled", "disabled");
+            });
+            // Delete row on delete button click
+            $(document).on("click", ".delete", function(){
+            $(this).parents("tr").remove();
+            $(".add-new").removeAttr("disabled");
+            });
+            });
+            </script> -->
+
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" style="background-color: #1f3e5d;" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+            <a href="http://127.0.0.1:8000/" class="logo d-flex align-items-center">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <h1>Shift Freight</h1>
+            </a>
+
+            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a href="http://127.0.0.1:8000/accounts/driverhome/" >Dashboard</a></li>
+
+                    <li><a href="">Profile</a></li>
+
+                    <li><a href="http://127.0.0.1:8000/accounts/viewfuel/" class="active">Fuel Management</a></li>
+
+                    <li><a href="http://127.0.0.1:8000/accounts/driverconsignment/">Consignment</a></li>
+
+                    <li><a href="http://127.0.0.1:8000/accounts/viewlogin">Logout</a></li>
+
+                </ul>
+            </nav><!-- .navbar -->
+
+        </div>
+        <script src="{% static 'js/addfuel.js' %}" rel="stylesheet"></script>
+
+    
+
+    </header><!-- End Header -->
+    <!-- End Header -->
+
+    <div class="container">
+        <div class="table-wrapper">
+        <div class="table-title">
+        <div class="row">
+        <div class="col-sm-8"><h2>View<b>FuelDetails</b></h2></div>
+        <div class="col-sm-4">
+        <button onclick="document.getElementById('modalBox').style.display='block'">Add Fuel</button>
+
+        <div id="modalBox" class="modal">
+            <div class="modal-content">
+              <span class="close" onclick="document.getElementById('modalBox').style.display='none'">&times;</span>
+              <h2>Add Fuel Details</h2>
+              <form method="POST" action="{% url 'addfuel' %}" enctype="multipart/form-data">
+                  {% csrf_token %}
+                  <label for="truck">Truck:</label>
+                  <input type="text" id="truck" name="truck" required><br><br>
+                  <label for="truck">Fuel type:</label>
+                  <input type="text" id="fuel_type" name="fuel_type" required><br><br>
+                  <label for="odometer_reading">Odometer Reading:</label>
+                  <input type="number" id="odometer_reading" name="odometer_reading" required><br><br>
+                  <label for="fill_date">Fill Date:</label>
+                  <input type="date" id="fill_date" name="fill_date" required><br><br>
+                  <label for="quantity">Quantity:</label>
+                  <input type="number" id="quantity" name="quantity" required><br><br>
+                  <label for="amount">Amount:</label>
+                  <input type="number" id="amount" name="amount" required><br><br>
+                  <label for="comment">Comment:</label>
+                  <textarea id="comment" name="comment"></textarea><br><br>
+                  <label for="bill_image">Bill Image:</label>
+                  <input type="file" id="bill_image" name="bill_image"><br><br>
+                  <input type="submit" value="Submit">
+              </form>
+            </div>
+          </div>
+
+        <!-- <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button> -->
+        </div>
+        </div>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+              <tr>
+                <!-- <th>#</th> -->
+                <th>Truck</th>
+                <th>Odometer Reading</th>
+                <th>Fill Date</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+                <th>Comment</th>
+                <th>Bill Image</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+             {% if fuel_details %}
+              <tr>
+                <td>#</td>
+                <td>{{ truck }}</td>
+                <td>{{ odometer_reading }}</td>
+                <td>{{ fill_date }}</td>
+                <td>{{ quantity }}</td>
+                <td>{{ amount }}</td>
+                <td>{{ comment }}</td>
+                <td>{{ bill_image }}</td>
+                <td>
+                  <!-- <a class="add" title="Add" data-toggle="tooltip">
+                    <i class="material-icons">&#xE03B;</i>
+                  </a>
+                  <a class="edit" title="Edit" data-toggle="tooltip">
+                    <i class="material-icons">&#xE254;</i>
+                  </a>
+                  <a class="delete" title="Delete" data-toggle="tooltip">
+                    <i class="material-icons">&#xE872;</i>
+                  </a> -->
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          
+        </div>
+        </div>
+        <script>
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == document.getElementById('modalBox')) {
+                document.getElementById('modalBox').style.display = "none";
+              }
+            }
+        </script>
+
+    <!-- <main id="main" style="margin-top: 150px;"> 
+        
+    </main> -->
+</body>
+
+</html>

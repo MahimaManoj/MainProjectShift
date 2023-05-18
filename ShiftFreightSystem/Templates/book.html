@@ -1,0 +1,221 @@
+{% extends 'consignorbase.html' %}
+{% load static %}
+
+{% block content %}
+<head>
+<style>
+  .header{
+    height: 30px;
+  }
+
+.container{
+  margin-top: 8pc;
+  margin-left: 100px;
+}
+.card-deck{
+  margin-top: 3pc;
+}
+.card{
+    height: fit-content;
+}
+.card-title-1{
+  size: 28%;   
+  color: aquamarine;
+}
+.card-title{
+  size: 26%;
+}
+
+</style>
+</head>
+                                
+        <div class="container rounded bg-white mt-5 mb-5">
+          <!-- <h2>Book for Truck</h2> -->
+            <form action="{% url 'book' %}" method="post" onsubmit="return cityValidate() && addressValidation() && pincodeValidation()">
+                {% csrf_token %}
+                
+            <div class="row">
+                <div class="col-md-4 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Pick up Details </h4>
+                        </div>
+                       
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                              <label class="labels">Enter the Pick Up City</label>
+                              <input type="text" name="p_cit" class="form-control" placeholder="Enter Pick up city" value="{{p_cit }}" onkeyup="cityValidate(this)"  required>
+                              <!-- <span id = "city" style="color:rgb(255,0, 0,0.404);"></span> -->
+                            </div><br>
+                            <div class="col-md-12">
+                              <label class="labels">Address Line 1</label>
+                              <input type="text"  name="p_addres1" class="form-control" placeholder="enter address line 1" value="" onkeyup="addressValidation(this)" required>
+                              <span id = "addr" style="color:rgb(255,0, 0,0.404);"></span>
+                            </div><br>
+                            <div class="col-md-12">
+                              <label class="labels">Address Line 2</label>
+                              <input type="text"  name="p_addres2" class="form-control" placeholder="enter address line 2" value="" onkeyup="addressValidation(this)" required>
+                              <span id = "city" style="color:rgb(255,0, 0,0.404);"></span>
+                            </div><br>
+                        </div><br>
+                        <div class="row mt-3">
+                            <div class="col-md-6"><label class="labels">District</label> 
+                              <input type="text" class="form-control"  name="p_distric" value="{{ vp.p_distric }}"  required>
+          
+                               
+                            </div><br>
+                            <div class="col-md-6"><label class="labels">State</label>
+                                <select id="inputState" name="p_stat" class="form-control" required>
+                                    <option selected>Choose...</option>
+                                    <option value="Kerala">Kerala</option>
+                                </select>
+                            </div>
+                        </div><br>
+                        
+                        <div class="row mt-3">
+                            
+                            <div class="col-md-6">
+                              <label class="labels">Postcode</label>
+                              <input type="text" class="form-control"  name="p_pincod" value="{{ vp.p_pincod }}" onkeyup="pincodeValidation(this)" required>
+                              <span id = "pin" style="color:rgb(255,0, 0,0.404);"></span>
+                            </div>
+                        </div>
+                        <!-- <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Update Profile</button></div> -->
+                    </div>
+                </div>
+
+                <div class="col-md-4 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Drop Details </h4>
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels">Enter the Drop City</label><input type="text" name="d_cit" class="form-control" placeholder="Enter Drop city" value="{{ vp.d_cit }}" onkeyup="cityValidate(this)"  required>
+                              <span id = "city" style="color:rgb(255,0, 0,0.404);"></span></div>
+                            <div class="col-md-12"><label class="labels">Address Line 1</label><input type="text" name="d_addres1" class="form-control" placeholder="enter address line 1" value="" onkeyup="addressValidation(this)" required>
+                              <span id = "addr" style="color:rgb(255,0, 0,0.404);"></span></div>
+                            <div class="col-md-12"><label class="labels">Address Line 2</label><input type="text" name="d_addres2" class="form-control" placeholder="enter address line 2" value="" onkeyup="addressValidation(this)" required>
+                              <span id = "city" style="color:rgb(255,0, 0,0.404);"></span></div>
+                        </div><br>
+                        <div class="row mt-3">
+                            <div class="col-md-6"><label class="labels">District</label>
+                              <input type="text" name="d_pincod" class="form-control" value="{{ vp.d_distric }}"  required>
+                                <!-- <select name="d_distric" class="form-control" required>
+                                    <option selected>Choose...</option>
+                                    <option value="Alappuzha">Alappuzha</option>
+                                    <option value="Ernakulam">Ernakulam</option>
+                                    <option value="Idukki">Idukki</option>
+                                    <option value="Kannur">Kannur</option>
+                                    <option value="Kasaragod">Kasaragod</option>
+                                    <option value="Kollam">Kollam</option>
+                                    <option value="Kottayam">Kottayam</option>
+                                    <option value="Kozhikode">Kozhikode</option>
+                                    <option value="Malappuram">Malappuram</option>
+                                    <option value="Palakkad">Palakkad</option>
+                                    <option value="Pathanamthitta">Pathanamthitta</option>
+                                    <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                                    <option value="Thrissur">Thrissur</option>
+                                    <option value="Wayanad">Wayanad</option>
+                                </select> -->
+                            </div><br>
+                            <div class="col-md-6"><label class="labels">State</label>
+                                <select id="inputState" name="d_stat" class="form-control" required>
+                                    <option selected>Choose...</option>
+                                    <option value="Kerala">Kerala</option>
+                                  </select>
+                            </div>
+                        </div><br>
+                        <div class="row mt-3">
+                            
+                            <div class="col-md-6"><label class="labels">Postcode</label><input type="text" name="d_pincod" class="form-control" value="{{ vp.d_pincod }}" onkeyup="pincodeValidation(this)" required>
+                              <span id = "pin" style="color:rgb(255,0, 0,0.404);"></span></div>
+                        </div><br>
+                        <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Book</button></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-3 py-5">
+                      <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right">Freight Details </h4>
+                    </div>
+                        <div class="col-md-12"><label class="labels">Select Type of Goods</label>
+                            <select id="good_type" name="good_typ" class="form-control" required>
+                                <option selected>Choose...</option>
+                                <option value="Household_goods">Household goods</option>
+                                <option value="Beverages">Beverages</option>
+                                <option value="Paints">Paints</option>
+                                <option value="Steel">Steel</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="others">others</option>
+                              </select>
+                        </div>
+                        <div class="col-md-12"><label class="labels">Select Date</label>
+                          <input type="date" name="bookingdat" id = "bookingdat" class="form-control" min="2023-03-30" max="2024-05-30" required>
+                      
+                        </div><br>
+                        <div class="col-md-12"><label class="labels">Estimated Weight</label><input type="text" name="weigh" class="form-control" placeholder="Estimated Weight" value="" required></div><br>
+                        <div class="form-group row gy-2">
+                            <label for="services" >Services</label>
+                
+                            <div class="form-check col-md-3">
+                              <input class="form-check-input" type="checkbox" value="Loading" name="service" id="flexCheckDefault">
+                              <label class="form-check-label" for="flexCheckDefault">
+                                Loading
+                              </label>
+                            </div>
+                            <div class="form-check col-md-3">
+                              <input class="form-check-input" type="checkbox" value="Unloading" name="service" id="flexCheckChecked" >
+                              <label class="form-check-label" for="flexCheckChecked">
+                                Unloading
+                              </label>
+                            </div>
+                            
+                            <div class="form-check col-md-3">
+                              <input class="form-check-input" type="checkbox" value="Cardboard Packing" name="service" id="flexCheckDefault">
+                              <label class="form-check-label" for="flexCheckDefault">
+                                Cardboard Packing
+                              </label>
+                            </div>
+                            <div class="form-check col-md-3">
+                              <input class="form-check-input" type="checkbox" value="Storage"  name="service" id="flexCheckChecked">
+                              <label class="form-check-label" for="flexCheckChecked">
+                                Storage
+                              </label>
+                            </div>
+                          </div><br>
+                          <div class="col-md-12"><label class="labels">Add Description about the load</label><input type="text" name="load_descriptio" class="form-control" placeholder="eg: 2 bed, 1 sofa set, 3 almara" value=""></div><br>
+                    </div>
+                </div>
+            </div>
+        </form>
+        </div>
+        <script>
+          // Get the input element
+          var input = document.getElementById("bookingdat");
+          
+          // Get the current date
+          var today = new Date();
+          today.setHours(0, 0, 0, 0);
+          
+          // Calculate the minimum and maximum selectable dates
+          var minDate = new Date();
+          minDate.setDate(today.getDate());
+          var maxDate = new Date();
+          maxDate.setDate(today.getDate() + 9);
+          
+          // Set the minimum and maximum selectable dates
+          input.setAttribute("min", minDate.toISOString().slice(0, 10));
+          input.setAttribute("max", maxDate.toISOString().slice(0, 10));
+          
+          // Disable dates before the minimum selectable date
+          var allDates = input.querySelectorAll("option");
+          for (var i = 0; i < allDates.length; i++) {
+            var date = new Date(allDates[i].value);
+            if (date < minDate) {
+              allDates[i].disabled = true;
+            }
+          }
+        </script>
+        
+     {% endblock %}

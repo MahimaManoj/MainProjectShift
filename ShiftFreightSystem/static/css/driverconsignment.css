@@ -1,0 +1,27 @@
+.one
+{
+    text-align: center;
+    font-size: 15px;
+    font: weight 4px; ;
+    color: rgb(26, 112, 48);
+    padding: 10px;
+    justify-content: center;
+    height: 650px;
+    width:50%;
+background-color:rgb(220, 243, 220);    
+float: left;  
+}
+.two
+{
+    text-align: center;
+font-size: 30px;
+color: white;
+padding: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 250px;
+width:50%;
+background-color:rgb(220, 220, 86);
+float: left;
+}

@@ -1,0 +1,109 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+	<meta charset="utf-8">  
+
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+  
+	<title>Login</title>
+	<meta content="" name="description">
+	<meta content="" name="keywords">
+  
+	<!-- Favicons 
+	<link href="{% static 'assets/img/favicon.png'%}" rel="icon">
+	<link href="{% static 'assets/img/apple-touch-icon.png'%}" rel="apple-touch-icon">-->
+  
+	<!-- Google Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  
+	<!-- Vendor CSS Files -->
+	<link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+	<link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css'%}" rel="stylesheet">
+	<link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css'%}" rel="stylesheet">
+	<link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css'%}" rel="stylesheet">
+	<link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css'%}" rel="stylesheet">
+	<link href="{% static 'assets/vendor/aos/aos.css'%}" rel="stylesheet">
+  
+	<!-- Template Main CSS File -->
+	<link href="{% static 'assets/css/main.css'%}" rel="stylesheet">
+  
+  	<title>Login 01</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="{% static 'log/css/style.css' %}">
+
+	</head>
+	<body>
+		<!-- ======= Header ======= -->
+		<header id="header" class="header d-flex align-items-center fixed-top">
+			<div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+			  <a href="http://127.0.0.1:8000/home/" class="logo d-flex align-items-center">
+				<!-- Uncomment the line below if you also wish to use an image logo -->
+				<!-- <img src="assets/img/logo.png" alt=""> -->
+				<h1 style="color:rgb(43, 15, 151);">Shift Freight</h1>
+			  </a>
+			</div>
+		</header>
+		<!-- End Header -->
+		<section class="ftco-section">
+			<div class="container">
+				<!--<div class="row justify-content-center">
+					<div class="col-md-6 text-center mb-5">
+						<h2 class="heading-section">Login #01</h2>
+					</div>
+				</div>-->
+				<div class="row justify-content-center">
+					<div class="col-md-7 col-lg-5">
+						<div class="login-wrap p-4 p-md-5">
+							<div class="icon d-flex align-items-center justify-content-center">
+								<span class="fa fa-user-o"></span>
+							</div>
+							<h3 class="text-center mb-4">Sign In</h3>
+							
+								<!-- <input type="radio" id="company" name="user" value="1"></a>
+								<label for="company"><a href="http://127.0.0.1:8000/register/login/">Transport company</a></label> -->
+							
+								<h6>Enter your phone number to login.</h6>
+							<br>
+								
+							<form action="{% url 'driverlogin' %}" method="post"  autocomplete="off" id="drform" class="login-form">
+								{% csrf_token %}
+    							{{ form.as_p }}
+								<div class="form-group">
+									<label for="{{ form.otp_token.id_for_label }}">OTP Token</label>
+									{{ form.otp_token }}
+								  </div>
+								  <button type="submit" class="btn btn-primary">Login</button>
+								<!-- <div class="form-group d-flex">
+									<input type="password" class="form-control rounded-left" name="password" id="password" placeholder="Password" required>
+								</div> -->
+								<div class="form-group">
+									<button type="submit" class="form-control btn btn-primary rounded submit px-3">Login</button>
+								</div>
+								
+							</form>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<script src="{% static 'log/js/jquery.min.js'%}"></script>
+		<script src="{% static 'log/js/popper.js'%}"></script>
+		<script src="{% static 'log/js/bootstrap.min.js'%}"></script>
+		<script src="{% static 'log/js/main.js'%}"></script>
+
+	</body>
+</html>
+
+
+

@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <title>Shift Freight - Index</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <!--<link href="{% static 'assets/img/favicon.png'%}" rel="icon">-->
+    <link href="{% static 'assets/img/apple-touch-icon.png' %}" rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href="{% static 'assets/css/main.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/book.css' %}" rel="stylesheet">
+    <script src="{% static 'js/book.js' %}" rel="stylesheet"></script>
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.book.css">
+    
+    <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard.book.css" rel="stylesheet"
+        type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/smart_wizard_theme_arrows.book.css"
+        rel="stylesheet" type="text/css" />
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/jquery.smartWizard.book.js"></script>
+
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" style="background-color: #1f3e5d;" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+
+            <a href="http://127.0.0.1:8000/" class="logo d-flex align-items-center">
+                <!-- Uncomment the line below if you also wish to use an image logo -->
+                <!-- <img src="assets/img/logo.png" alt=""> -->
+                <h1>Shift Freight</h1>
+            </a>
+
+            <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+            <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a href="http://127.0.0.1:8000/accounts/driverhome/" class="active">Dashboard</a></li>
+
+                    <li><a href="">Profile</a></li>
+
+                    <li><a href="http://127.0.0.1:8000/accounts/viewfuel/">Fuel Management</a></li>
+
+                    <li><a href="http://127.0.0.1:8000/accounts/driverconsignment/">Consignment</a></li>
+
+                    <li class="dropdown"><a href="#"> <span>{{user.name}}</span><i class="bi bi-chevron-down dropdown-indicator"></i></a>
+                      <ul>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                      </ul>
+                    </li>
+
+                    <!-- <ul class="float-right">
+                      <li><a href="#">{{user.name}}</a>
+                <ul>
+                        <li><a href="/accounts/logout" >LOGOUT</a></li>
+                </ul>
+              </li>
+                      
+                  </ul> -->
+          
+
+                </ul>
+            </nav><!-- .navbar -->
+
+        </div>
+
+    </header><!-- End Header -->
+    <!-- End Header -->
+
+
+    <main id="main" style="margin-top: 200px; margin-left: 50px ; margin-right:300px;">
+      <div class="alert alert-primary" role="alert">
+     <h4>Haii {{user.name}}</h4> Welcome to Shift Freight.&#127881; <br>Go to the Profile section to update your details.
+      </div>
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="card" style="background-color: #bacee1;" >
+            <div class="card-body" >
+              <h5 class="card-title">Fuel Management</h5>
+              <p class="card-text">Add fuel details such as fuel quantity, vehicle name, total amount, etc</p>
+              <a href="http://127.0.0.1:8000/accounts/addfuel/" class="btn btn-primary">Add Fuel</a> <tr><a href="http://127.0.0.1:8000/accounts/viewfuel/" class="btn btn-primary">View Fuel</a></tr>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="card" style="background-color: #bacee1;">
+            <div class="card-body">
+              <h5 class="card-title">Company Consignment</h5>
+              <p class="card-text">Check out for the consignments offered by the </p>
+              <a href="#" class="btn btn-primary">Check consignment</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </main>
+      </body>
+      </html>

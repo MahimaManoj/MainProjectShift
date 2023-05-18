@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Payment Page</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			padding: 20px;
+			background-color: #f2f2f2;
+		}
+		h1 {
+			font-size: 36px;
+			text-align: center;
+			margin-bottom: 20px;
+		}
+		p {
+			font-size: 18px;
+			line-height: 1.5;
+			margin-bottom: 20px;
+		}
+		/* .btn {
+			display: inline-block;
+			padding: 10px 20px;
+			font-size: 18px;
+			font-weight: bold;
+			color: #090909;
+			background-color: #a6a8ab;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+		.btn:hover {
+			background-color: #a6a8ab;
+		} */
+	</style>
+</head>
+<body>
+	<h1>Payment Page</h1>
+	<p>Please review the following policies before making a payment:</p>
+	<ul>
+		<li>All payments are non-refundable after 10 days of booking.</li>
+		<li>Any cancellations made within 10 days of booking are eligible for a full refund.</li>
+		<li>Any cancellations made after the 10-day grace period are non-refundable.</li>
+		<li>Payments made via this portal are securely processed through our third-party payment provider.</li>
+	</ul>
+    <button class="boxed-btn"  id="rzp-button1" ><b><font size="6" ><i> Pay Now</i></font></b></button> 
+    <a href="http://127.0.0.1:8000/accounts/consignorhome/"><button type="button" class="btn btn-danger" size="6" >cancel</button></a>
+</body>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+	var options = {
+		"key": "rzp_test_KfdCGBgxb9ijho",
+		"amount": "200000",
+		"currency": "INR",
+		"name": "TRANSPORTMANAGEMENTSYSTEM",
+		"description": "Test Transaction",
+		"image": "https://example.com/your_logo",
+		"order_id": "{{order_id}}", //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+		"callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+	   "handler": function (response){
+									console.log("success")
+									var form = document.getElementById["myform"];
+	
+	
+									var a = response.razorpay_payment_id;
+	
+									// alert({{order_id}})
+	
+									window.location.href = 'http://127.0.0.1:8000/accounts/viewbooking'
+	
+								},
+		"prefill": {
+			"name": "{{user.f_name}}",
+			"email": "{{usr_lg.email}}",
+			"contact": "8075901728"
+		},
+		"notes": {
+			"address": "Razorpay Corporate Office"
+		},
+		"theme": {
+			"color": "#3399cc"
+		}
+	
+	};
+	var rzp1 = new Razorpay(options);
+	document.getElementById('rzp-button1').onclick = function(e){
+		rzp1.open();
+		e.preventDefault();
+	}
+	</script>
+	
+</html>
